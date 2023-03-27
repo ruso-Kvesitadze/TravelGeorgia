@@ -1,0 +1,34 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+
+
+
+<div style="text-align:center">
+
+<h1 class="fontchanger" style="color:rgb(173, 119, 224); font-size: 80px; margin-bottom: 40px;">
+    Register
+</h1>
+
+<form method="POST", enctype="multipart/form-data">
+        {{ register_form.hidden_tag() }}
+        {{ register_form.username ( placeholder="Username", class = "backgroundgradient" ) }}<br>
+        {{ register_form.email ( placeholder="Email", class = "backgroundgradient" ) }}<br>
+        {{ register_form.mobile_number ( placeholder="Mobile number", class = "backgroundgradient" ) }}<br>
+        {{ register_form.password (placeholder="Password", class = "backgroundgradient" ) }}<br>
+        {{ register_form.confirm_password ( placeholder="Repeat password", class = "backgroundgradient" ) }}
+        <br>
+        {{ register_form.submit (class = "backgroundgradient", value = "Register", style="width:150px; color:black;") }}
+
+
+</form>
+
+
+{% for field, error in register_form.errors.items() %}
+    <div class="alert alert-primary" role="alert">
+        {{ error }}
+ 
+    {% endfor %}
+
+</div>
+</div>
+{% endblock %}
